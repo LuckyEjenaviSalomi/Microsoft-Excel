@@ -1,4 +1,4 @@
-# Ms-Excel
+# Microsoft Excel
 <ol>
 <li>Excel practice files</li>
 <li>VBA automation codes</li>
