@@ -1,0 +1,1 @@
+=TRIM(MID(CELL("filename"),FIND("]",CELL("filename"),SEARCH(".xl*",CELL("filename")))+1,LEN(CELL("filename"))))
