@@ -1,0 +1,2 @@
+// Replace 'A1' with the actual cell reference
+=LET(rng, A2, values, MID(rng,ROW(INDIRECT("1:"&LEN(rng))),1),istext, ISNUMBER(VALUE(MID(rng,ROW(INDIRECT("1:"&LEN(rng))),1))) = FALSE, txt, IF(SUM(--istext), FILTER(values, istext),""), result, TEXTJOIN("",TRUE, txt), result )
