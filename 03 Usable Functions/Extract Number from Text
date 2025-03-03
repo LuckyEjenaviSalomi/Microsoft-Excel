@@ -1,0 +1,1 @@
+LET(rng, A1, values, VALUE(MID(rng,ROW(INDIRECT("1:" & LEN(rng))),1)), isnum, ISNUMBER(VALUE(MID(rng,ROW(INDIRECT("1:" & LEN(rng))),1))), nums, FILTER(values * isnum, ISERROR(values)=FALSE), result, VALUE(TEXTJOIN("",TRUE,nums)), result )
