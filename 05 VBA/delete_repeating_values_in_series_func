@@ -1,0 +1,28 @@
+Sub delete_repeating_values_in_series_func(ByVal rng As Range)
+    'Removes repeating values in a repeating series within a column
+    
+    Dim col As Range
+    Dim r As Long, c As Long, i As Long, n_rows As Long
+    
+    If rng.Rows.Count <= 1 Then
+        MsgBox "Selection needs at least 2 rows", vbInformation, "Insufficient Data!"
+        Exit Sub
+    End If
+    
+    'Loop over columns in selection
+    For i = 1 To rng.Columns.Count
+        Set col = rng.Columns(i)
+        
+        'Loop over the column in reverse
+        For r = col.Rows.Count To 1 Step -1
+            If (col.Cells(r).Value = col.Cells(r - 1).Value) And col.Cells(r) <> "" Then
+                col.Cells(r).Value = ""
+            End If
+        Next r
+        
+    Next i
+    
+    MsgBox "Repeating rows have been successfully deleted from selection", vbOKCancel, "Success!"
+    rng.Cells(1).Select
+    
+End Sub
