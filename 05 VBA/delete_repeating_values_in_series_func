@@ -20,6 +20,7 @@ Sub delete_repeating_values_in_series_func(ByVal rng As Range)
         
         'Loop over the column in reverse
         If WorksheetFunction.CountA(col) <> 0 Then 'If column is not empty
+            c = c + 1
             For r = col.Rows.Count To 1 Step -1
                 If (col.Cells(r).Value = col.Cells(r - 1).Value) And col.Cells(r) <> "" Then
                     col.Cells(r).Value = ""
@@ -29,7 +30,9 @@ Sub delete_repeating_values_in_series_func(ByVal rng As Range)
         
     Next i
     
-    MsgBox "Repeating rows have been successfully deleted from selection", vbOKCancel, "Success!"
+    MsgBox "Repeating rows have been successfully deleted from selection of " & c & " column" & IIf(c = 1, "", "s") & ".", _
+                    vbOKCancel, "Success!"
     rng.Cells(1).Select
+
 
 End Sub
