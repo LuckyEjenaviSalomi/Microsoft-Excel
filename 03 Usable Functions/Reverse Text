@@ -1,0 +1,1 @@
+LAMBDA(x, TEXTJOIN("",,MID(x,SEQUENCE(LEN(x),,LEN(x), -1),1)))
