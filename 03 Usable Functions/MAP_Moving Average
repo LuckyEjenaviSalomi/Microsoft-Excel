@@ -1,0 +1,1 @@
+LAMBDA(array,count_,  MAP(array,LAMBDA(x, AVERAGE(OFFSET(x,0,0,-IF(ROW(x)=1,1, IF(ROW(x)<=count_,ROW(x)-1,count_)))) )))
