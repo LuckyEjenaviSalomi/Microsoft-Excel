@@ -1,2 +1,1 @@
-// Replace 'A1" cell reference with the actual cell reference
-=LET(rng, A1, values, VALUE(MID(rng,ROW(INDIRECT("1:" & LEN(rng))),1)), isnum, ISNUMBER(VALUE(MID(rng,ROW(INDIRECT("1:" & LEN(rng))),1))), nums, FILTER(values, isnum), result, IF(SUM(--isnum), VALUE(TEXTJOIN("",TRUE,nums)),""), result )
+LAMBDA(NumText, IFERROR(VALUE(TEXTJOIN("",TRUE,MAP(MID(NumText,SEQUENCE(LEN(NumText)),1), LAMBDA(x, IF(ISNUMBER(VALUE(x)), x, "") )))),""))
